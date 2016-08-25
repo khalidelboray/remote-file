@@ -2,7 +2,6 @@
 
 Fetch remote file using http.
 
-
 # INSTALL
 
     $ panda install Sparrowdo::RemoteFile
@@ -11,10 +10,11 @@ Fetch remote file using http.
 
     $ cat sparrowfile
 
-    module_run 'RemoteFile' %(
-        url       => 'http://somehost/somefile.tar.gz',
-        location  => '/tmp/somefile.tar.gz'
+    module_run 'RemoteFile', %(
+        url       => 'https://github.com/melezhik/remote-file/archive/master.zip',
+        location  => '/tmp/foo/bar/master.zip'
     );
+    
 
 # Parameters
 

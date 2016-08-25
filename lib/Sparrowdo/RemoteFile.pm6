@@ -22,7 +22,7 @@ our sub tasks (%args) {
     task    => "download remote file",
     plugin  => "bash",
     parameters => %(
-      command => 'curl '  ~ %args<url> ~ ' -f -s -o ' ~ %args<location>
+      command => 'curl '  ~ %args<url> ~ ' -k -f -s -o ' ~ %args<location>
     )
   );
 
