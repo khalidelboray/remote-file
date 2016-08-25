@@ -12,14 +12,19 @@ Fetch remote file using http.
     $ cat sparrowfile
 
     module_run 'RemoteFile' %(
-        url => 'http://somehost/somefile.tar.gz'
+        url       => 'http://somehost/somefile.tar.gz',
+        location  => '/tmp/somefile.tar.gz'
     );
 
 # Parameters
 
 ## url
 
-Remote file url
+Remote file url. No default value. Obligatory.
+
+## location
+
+A local file path where to store a downloaded file. No default value. Obligatory.
   
 # Author
 
