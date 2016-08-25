@@ -15,14 +15,14 @@ our sub tasks (%args) {
   task_run %(
     task        => "create directory for downloads",
     plugin      => "directory",
-    parameters  => %( location =>  %args<location>.IO.dirname )
+    parameters  => %( path =>  %args<location>.IO.dirname )
   );
 
   task_run %(
     task    => "download remote file",
     plugin  => "bash",
     parameters => %(
-      command => 'curl '  ~ %args<url> ~ ' -k -f -s -o ' ~ %args<location>
+      command => 'curl '  ~ %args<url> ~ "-w '%{url_effective} ==> %{http_code}" -s -k -f -o ' ~ %args<location>
     )
   );
 
