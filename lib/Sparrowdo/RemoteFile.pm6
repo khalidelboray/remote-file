@@ -23,7 +23,7 @@ our sub tasks (%args) {
     plugin  => "bash",
     parameters => %(
       command => 'curl '  ~ %args<url> ~ ' -w \'%{url_effective} ==> <%{http_code}> \'' 
-      ~ ' -L -s -k -f -o ' ~ %args<location> ~ ' && echo && ls -l ' ~ %args<location> ,
+      ~ ' -L -s -k -f -o ' ~ %args<location> ~ ' && echo && ls -lh ' ~ %args<location> ,
       debug => 0,
     )
   );
