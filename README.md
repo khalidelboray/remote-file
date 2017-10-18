@@ -36,6 +36,15 @@ no default value.
 Sets password for resources with access restricted by http basic authentication. Optional,
 no default value.
 
+## headers
+
+You may set Http headers for request:
+
+    headers => (
+      "Name: Alexey",
+      "LastName: Melezhik"
+    )
+
 # Author
 
 [Alexey Melezhik](melezhik@gmail.com)

@@ -18,7 +18,9 @@ our sub tasks (%args) {
     parameters  => %( path =>  %args<location>.IO.dirname )
   );
 
-  my $cmd = 'if test -f ' ~ %args<location> ~ ' ; then ' ~ "\n";
+  my $cmd = "set -e"  ~ "\n";
+ 
+  $cmd ~= 'if test -f ' ~ %args<location> ~ ' ; then ' ~ "\n";
   $cmd ~= 'echo file ' ~  %args<location> ~ ' exists, skip download' ~ "\n";
   $cmd ~= 'else' ~ "\n";
 
@@ -26,11 +28,21 @@ our sub tasks (%args) {
   ~ ' -L -s -k -f -o ' ~ %args<location>; 
 
   $cmd ~= ' -u' ~ %args<user> if %args<user>.defined;
+
+  if %args<headers> {
+
+    # -H "X-First-Name: Joe"
+    for %args<headers> -> $h {
+      $cmd ~= ' -H "' ~ $h ~ '"';
+    }
+  }
+
+
   $cmd ~= ':' ~ %args<password> if %args<password>.defined;
 
-  $cmd ~= ' && echo && ls -lh ' ~ %args<location>;
+  $cmd ~= "\n" ~ 'fi' ~ "\n";
 
-  $cmd ~= "\n" ~ 'fi';
+  $cmd ~= 'ls -lh ' ~ %args<location>;
 
   task_run %(
     task    => "download remote file",
