@@ -18,13 +18,19 @@ our sub tasks (%args) {
     parameters  => %( path =>  %args<location>.IO.dirname )
   );
 
-  my $cmd = 'curl '  ~ %args<url> ~ ' -w \'%{url_effective} ==> <%{http_code}> \'' 
+  my $cmd = 'if test -f ' ~ %args<location> ~ ' ; then ' ~ "\n";
+  $cmd ~= 'echo file ' ~  %args<location> ~ ' exists, skip download' ~ "\n";
+  $cmd ~= 'else' ~ "\n";
+
+  $cmd ~= 'curl '  ~ %args<url> ~ ' -w \'%{url_effective} ==> <%{http_code}> \'' 
   ~ ' -L -s -k -f -o ' ~ %args<location>; 
 
   $cmd ~= ' -u' ~ %args<user> if %args<user>.defined;
   $cmd ~= ':' ~ %args<password> if %args<password>.defined;
 
   $cmd ~= ' && echo && ls -lh ' ~ %args<location>;
+
+  $cmd ~= "\n" ~ 'fi';
 
   task_run %(
     task    => "download remote file",
