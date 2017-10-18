@@ -4,7 +4,7 @@ Fetch remote file using http.
 
 # INSTALL
 
-    $ panda install Sparrowdo::RemoteFile
+    $ zef install Sparrowdo::RemoteFile
 
 # USAGE
 
