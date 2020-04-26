@@ -4,14 +4,15 @@
   ],
   "build-depends" : [ ],
   "depends" : [
-    "Sparrowdo"
+    "Sparrow6"
   ],
   "description" : "Fetch remote file using http",
   "license" : "NOASSERTION",
   "name" : "Sparrowdo::RemoteFile",
   "perl" : "6.*",
   "provides" : {
-    "Sparrowdo::RemoteFile" : "lib/Sparrowdo/RemoteFile.pm6"
+    "Sparrowdo::RemoteFile" : "lib/Sparrowdo/RemoteFile.pm6",
+    "Sparrow6::RemoteFile" : "lib/Sparrow6/RemoteFile.pm6"
   },
   "resources" : [ ],
   "source-type" : "git",

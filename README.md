@@ -10,7 +10,7 @@ Fetch remote file using http.
 
     $ cat sparrowfile
 
-    module_run 'RemoteFile', %(
+    module-run 'RemoteFile', %(
         url       => 'https://github.com/melezhik/remote-file/archive/master.zip',
         location  => '/tmp/foo/bar/master.zip'
     );
