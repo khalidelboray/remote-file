@@ -11,8 +11,8 @@
   "name" : "Sparrowdo::RemoteFile",
   "perl" : "6.*",
   "provides" : {
-    "Sparrowdo::RemoteFile" : "lib/Sparrowdo/RemoteFile.pm6",
-    "Sparrow6::RemoteFile" : "lib/Sparrow6/RemoteFile.pm6"
+    "Sparrow6::RemoteFile" : "lib/Sparrow6/RemoteFile.pm6",
+    "Sparrowdo::RemoteFile" : "lib/Sparrowdo/RemoteFile.pm6"
   },
   "resources" : [ ],
   "source-type" : "git",
@@ -23,5 +23,5 @@
   },
   "tags" : [ ],
   "test-depends" : [ ],
-  "version" : "0.0.1"
+  "version" : "0.0.3"
 }
