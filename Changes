@@ -2,10 +2,15 @@ Revision history for Sparrowdo::RemoteFile
 
 {{$NEXT}}
 
+    - Documentation fixes
+
 0.0.3  2020-04-25T21:26:11-05:00
 
     - Migrate to Sparrow6
 
-0.0.2  22017-10-18
+0.0.2  2017-10-18
+
+    - Don't download file if target location exists
+    - Introducing headers
 
 
